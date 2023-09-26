@@ -1,0 +1,123 @@
+.signup-Component{
+border: 1px solid black;
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.f{
+    color: blue;
+    font-size: 30px;
+}
+.u{
+    color: red;
+    font-size: 30px;
+}
+.n{
+    color: yellow;
+    font-size: 30px;
+}
+.d{
+    color: blue;
+    font-size: 30px;
+}
+.o{
+    color: red;
+    font-size: 30px;
+}
+.o2{
+    color: blue;
+    font-size: 30px;
+}
+
+
+
+.signup-Container{
+    height: 90%;
+    width: 60%;
+    margin:  auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.formArea{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-left: 10px;
+}
+.logo{
+    height: 10%;
+    display: flex;
+    flex-direction: left;
+}
+.form{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    height: 60px;
+    display: flex;   
+}
+.name{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.namebox{
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+}
+.userName{
+    height: 40px;
+    display: flex;
+    justify-content: center;   
+}
+.userNameBox{
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+}
+.UserNameLabel{
+    color: gray;
+    display: flex;
+    justify-content: left;
+}
+.info{
+    text-align: left;
+}
+.password{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+p{
+    text-align: left;
+    color: gray;
+}
+.showPassword{
+    text-align: left;
+}
+.lastDiv{
+    height: 80px;
+    justify-content: space-between;
+    display: flex;
+}
+.nextButton{
+    width: 60px;
+    height: 35px;
+    background-color: rgb(53, 53, 210);
+    border-radius: 5px;
+}
+.image{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
