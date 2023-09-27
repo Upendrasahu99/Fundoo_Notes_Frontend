@@ -9,26 +9,32 @@ align-items: center;
 .f{
     color: blue;
     font-size: 30px;
+    font-weight: bold;
 }
 .u{
     color: red;
     font-size: 30px;
+    font-weight: bold;
 }
 .n{
     color: yellow;
     font-size: 30px;
+    font-weight: bold;
 }
 .d{
     color: blue;
     font-size: 30px;
+    font-weight: bold;
 }
 .o{
     color: red;
     font-size: 30px;
+    font-weight: bold;
 }
 .o2{
     color: blue;
     font-size: 30px;
+    font-weight: bold;
 }
 
 
@@ -93,7 +99,7 @@ align-items: center;
     text-align: left;
 }
 .password{
-    height: 80px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
 }
@@ -103,6 +109,7 @@ p{
 }
 .showPassword{
     text-align: left;
+    padding-bottom: 30px;
 }
 .lastDiv{
     height: 80px;
