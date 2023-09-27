@@ -47,19 +47,19 @@ align-items: center;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+ 
 }
 .formArea{
     height: 100%;
     width: 60%;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
-    padding-left: 10px;
 }
 .logo{
     height: 10%;
     display: flex;
     flex-direction: left;
+
 }
 .form{
     height: 90%;
@@ -71,17 +71,17 @@ align-items: center;
     display: flex;   
 }
 .name{
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
 }
 .namebox{
-    width: 250px;
+    width: 45%;
     height: 35px;
     border-radius: 5px;
 }
 .userName{
-    height: 40px;
+    height: 60px;
     display: flex;
     justify-content: center;   
 }
@@ -122,9 +122,77 @@ p{
     background-color: rgb(53, 53, 210);
     border-radius: 5px;
 }
-.image{
+.image-Container{
+    width: 40%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
+.image{
+    height: 40%;
+    width: 95%;
+}
+
+@media(min-width: 600px) and (max-width: 1000px){
+    .signup-Container{
+        height: 60%;
+        width: 100%;
+        border: 0px;
+        padding-bottom: 400px;
+    }
+    .image-Container {
+        display: flex;
+        justify-content: center;
+        
+      }
+}
+@media(max-width: 600px){
+    .signup-Container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0px;
+    }
+    .formArea{
+        height: 90%;
+        width: 90%;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+    }
+    .image-Container{
+        height: 0%;
+        width: 0%;
+    }
+    .name{
+        height: 120px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 10px;
+    }
+    .namebox{
+        width: 100%;
+        height: 40px;
+    }
+    .userName{
+        width: 100%;
+        height: 60px;
+    }
+    /* .userNameBox{
+        margin-top: 40px;
+        width:  100%;
+    } */
+    .password{
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+

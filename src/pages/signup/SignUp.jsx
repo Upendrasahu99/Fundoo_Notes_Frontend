@@ -1,6 +1,7 @@
 import React  from "react";
 import "./SignUp.css";
 import logo from '../../asset/logo.jpg';
+import {TextField, Button, Checkbox} from '@mui/material';
 
 const SignUp = () => {
     return(
@@ -22,11 +23,11 @@ const SignUp = () => {
                      <h4>Create Your Google Account</h4>
                   </div>
                   <div className="name">
-                     <input placeholder="FirstName" className="namebox"></input>
-                     <input placeholder="LastName" className="namebox"></input>
+                  <TextField id="outlined-basic" label="FirstName" variant="outlined"/>
+                  <TextField id="outlined-basic" label="LastName" variant="outlined"/>
                   </div>
                   <div className="userName">
-                     <input placeholder="UserName" className="userNameBox"></input>               
+                     <TextField id="outlined-basic" label="UserName" variant="outlined" className="userNameBox" />             
                   </div>
                   <div className="UserNameLabel">
                   <label >You can use letters, numbers & periods</label> 
@@ -34,8 +35,18 @@ const SignUp = () => {
                   <p>Use My Current Email instead</p>
 
                   <div className="password">
-                     <input placeholder="Password" className="namebox"></input>
-                     <input placeholder="Confirm" className="namebox"></input>
+                     <TextField
+                       id="outlined-password-input"
+                       label="Password"
+                       type="password"
+                       autoComplete="current-password"
+                     />
+                     <TextField
+                       id="outlined-password-input"
+                       label="Confirm Password"
+                       type="password"
+                       autoComplete="current-password"
+                     />
                   </div>
 
                   <p>Use 8 or more characters with a mix of letters, numbers & symbols</p>
@@ -47,15 +58,14 @@ const SignUp = () => {
 
                   <div className="lastDiv">
                      <a href="">Sign in insted</a>
-                     <button className="nextButton">Next</button>
+                     <Button variant="contained" className="nextButton">Next</Button>
                   </div>
                   </form>
 
                </div>
             </div>
-            <div className="image">
-               {/* <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt=""></img> */}
-               <img src={logo} width={350} height={250}></img>
+            <div className="image-Container">
+               <img src={logo} className="image"></img>
             </div>
           </div>
        </div>
