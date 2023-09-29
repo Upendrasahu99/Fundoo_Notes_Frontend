@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./Login.css";
 import { TextField, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { login } from "../../service/UserService";
 
 
 
@@ -68,7 +68,13 @@ const submitHandler = () =>{
         userNameCheck === true &&
         passwordCheck === true 
       ) {
-        alert("user registered successfully");
+        // alert("user registered successfully");
+        login(data).then ((response) =>{
+            console.log(response)
+            localStorage.setItem("Token", response.data.result) // "result" is name which we given in controller response
+          }).catch((error) => {
+            console.log(error)
+          })
       }
 }
     return(

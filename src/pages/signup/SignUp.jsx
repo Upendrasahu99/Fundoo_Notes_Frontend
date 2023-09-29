@@ -4,7 +4,8 @@ import logo from "../../asset/logo.jpg";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { fireEvent } from "@testing-library/react";
+// import { fireEvent } from "@testing-library/react";
+import { signup } from "../../service/UserService";
 
 const regex = {
   firstName: /[A-Z]{1}[a-z]{2,}$/,
@@ -18,8 +19,8 @@ export default function SignUp() {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    password: ""
+    // confirmPassword: "",
   });
 
   const [isValidFname, setIsValidFname] = useState({
@@ -38,19 +39,19 @@ export default function SignUp() {
     errorStatus: false,
     message: "",
   });
-  const [isValidConfirmPassword, setIsValidConfirmPassword] = useState({
-    errorStatus: false,
-    message: "",
-  });
+  // const [isValidConfirmPassword, setIsValidConfirmPassword] = useState({
+  //   errorStatus: false,
+  //   message: "",
+  // });
 
   const changeHandler = { //Save the data
     fname: (e) => setUser((prev) => ({ ...prev, firstName: e.target.value })), 
     lname: (e) => setUser((prev) => ({ ...prev, lastName: e.target.value })),
     userName: (e) => setUser((prev) => ({ ...prev, email: e.target.value })),
     password: (e) => setUser((prev) => ({ ...prev, password: e.target.value })),
-    confirmPassword: (e) =>setUser((prev) => ({ ...prev, confirmPassword: e.target.value })),
-
+    // confirmPassword: (e) =>setUser((prev) => ({ ...prev, confirmPassword: e.target.value })),
   };
+  console.log(user)
 
   const submitHandler = () => { //Check Regex and 
     const fnameCheck = regex.firstName.test(user.firstName);
@@ -113,21 +114,27 @@ export default function SignUp() {
         message: "Enter Valid Password",
       }));
     }
-    if (user.password !== user.confirmPassword) {
-      setIsValidConfirmPassword((prev) => ({
-        ...prev,
-        errorStatus: true,
-        message: "Password Mismatched",
-      }));
-    }
+    // if (user.password !== user.confirmPassword) {
+    //   setIsValidConfirmPassword((prev) => ({
+    //     ...prev,
+    //     errorStatus: true,
+    //     message: "Password Mismatched",
+    //   }));
+    // }
     if (
       fnameCheck === true &&
       lnameCheck === true &&
       userNameCheck === true &&
-      passwordCheck === true &&
-      user.password === user.confirmPassword
+      passwordCheck === true 
+      // user.password === user.confirmPassword
     ) {
-      alert("user registered successfully");
+
+      signup(user).then ((response) =>{
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
+      
     }
   };
 
@@ -201,9 +208,9 @@ export default function SignUp() {
                   label="Confirm Password"
                   type="password"
                   autoComplete="current-password"
-                  onChange={changeHandler.confirmPassword}
-                  error={isValidConfirmPassword.errorStatus}
-                  helperText={isValidConfirmPassword.message}
+                  // onChange={changeHandler.confirmPassword}
+                  // error={isValidConfirmPassword.errorStatus}
+                  // helperText={isValidConfirmPassword.message}
                 />
               </div>
 
