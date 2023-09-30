@@ -225,7 +225,7 @@ export default function SignUp() {
               </div>
 
               <div className="lastDiv">
-              <Link to = "/login"> 
+              <Link to = "/"> 
                 <a href="">Sign in insted</a>
                 </Link>
                 <Button variant="contained" className="nextButton" onClick={submitHandler}>Next</Button>
