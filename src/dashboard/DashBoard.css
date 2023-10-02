@@ -1,0 +1,10 @@
+.Dashbord-Container{
+    display: flex;
+    flex-direction: column;
+}
+.AppBar-Contaier{
+border: 5px solid blue;
+}
+.SideBar-Container{
+    border: 5px solid palevioletred;
+}
