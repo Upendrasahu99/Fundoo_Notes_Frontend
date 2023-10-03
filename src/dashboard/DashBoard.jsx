@@ -1,19 +1,25 @@
-import React from 'react';
-import Appbar from './component/appBar/Appbar'
-import SideBar from './component/navBar/NavBar';
-import'./DashBoard.css';
+import React from "react";
+import Appbar from "./component/appBar/Appbar";
+import SideBar from "./component/navBar/NavBar";
+import "./DashBoard.css";
 
 const DashBoard = () => {
-    return (
-        <div className='Dashbord-Container'>
-        <div className='AppBar-Contaier'>
-        <Appbar/>
+  return (
+    // <div className="Dashbord-Container">
+    //   <div className="AppBar-Contaier">
+    //     <Appbar />
+    //   </div>
+    //   <div className="SideBar-Container">{/* <SideBar/> */}</div>
+    // </div>
+    <div className="Dashbord-Container">
+        <div className="AppBar-Container">
+
         </div>
-        <div className='SideBar-Container'>
-         <SideBar/>
+        <div className="SideBar-Container">
+            <SideBar/>
         </div>
-        </div>
-    );
-}
+    </div>
+  );
+};
 
 export default DashBoard;
