@@ -12,7 +12,7 @@ const regex = {
 };
 
 export default function Login() {
-  let navigate = useNavigate();
+  
 
   const [data, setData] = useState({ email: "", password: "" });
 
@@ -73,7 +73,8 @@ export default function Login() {
         });
     }
   };
-
+  let navigate = useNavigate();
+  
   const navigateToDashboard = () =>{
     navigate("/dashboard");
   } 

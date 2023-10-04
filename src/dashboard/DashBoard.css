@@ -3,6 +3,11 @@
     flex-direction: column;
 }
 
+.Note_Container{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
 
 
 

@@ -1,0 +1,16 @@
+
+.Paper-Container{
+    /* border: 5px solid black; */
+    height: 46px;
+    width: 600px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Paper-Component{
+    color: gray;
+    text-align: left;
+    width: 570px;
+    font-size: large;
+}
