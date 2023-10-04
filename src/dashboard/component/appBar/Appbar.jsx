@@ -21,12 +21,11 @@ import keepLogo from "../../../asset/keepLogo.png"
 // import NotificationsIcon from '@mui/icons-material/Notifications';
 // import MoreIcon from '@mui/icons-material/MoreVert';
 import "./Appbaar.css"
+import {  useNavigate } from 'react-router-dom';
 
 
-function handleLogout() {
-  // Remove the token from local storage
-  localStorage.removeItem('Token');
-}
+
+
 
 //Define a styled Search component
 const Search = styled('div')(({ theme }) => ({
@@ -174,7 +173,13 @@ export default function Appbar(props) {
   const handleDrawerOpen = () => {
     props.handleDrawerOpen();
   }
-
+//Logout funtionality
+function handleLogout() {
+  // Remove the token from local storage
+  localStorage.removeItem('Token');
+  navigate("/");
+}
+let navigate = useNavigate();
   return (
     <div>
     <Box sx={{ flexGrow: 1}}>

@@ -26,6 +26,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';// EditLabels
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined'; //Archive
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined'; //Bin
+import "./NavBar.css"
 
 //Define the widht of the sidebar
 const drawerWidth = 240;
@@ -38,6 +39,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  marginTop: '64px',  //give margin to top of drawer to make drawer below the app bar
 });
 
 //Define styles for the closed sidebar
@@ -51,6 +53,7 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
+  marginTop: '64px', //give margin to top of drawer to make drawer below the app bar
 });
 
 //Define the header of the drawer
@@ -75,7 +78,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100%px)`,  // make app bar always 100%
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -129,16 +132,15 @@ export default function SideBar() {
       <Appbar handleDrawerOpen = {handleDrawer}/>
       </AppBar>
       {/* Drawe component*/}
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} sx={{backgroundColor:"blue"}} >
         {/* DrawerHeader compnent*/}
-        <DrawerHeader>
-          {/* Icon button to toggle the sidebar */}
+        {/* <DrawerHeader sx={{width:"0px"}}>
+          Icon button to toggle the sidebar
           <IconButton onClick={handleDrawer} >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
-        </DrawerHeader>
+        </DrawerHeader> */}
 
-        {/* Divider */}
         <Divider />
 
         {/* List of IconButton compnents for sidebar menu items */}
