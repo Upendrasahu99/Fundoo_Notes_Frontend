@@ -3,7 +3,7 @@ import "./SignUp.css";
 import logo from "../../asset/logo.jpg";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 // import { fireEvent } from "@testing-library/react";
 import { signup } from "../../service/UserService";
 
@@ -114,13 +114,7 @@ export default function SignUp() {
         message: "Enter Valid Password",
       }));
     }
-    // if (user.password !== user.confirmPassword) {
-    //   setIsValidConfirmPassword((prev) => ({
-    //     ...prev,
-    //     errorStatus: true,
-    //     message: "Password Mismatched",
-    //   }));
-    // }
+    
     if (
       fnameCheck === true &&
       lnameCheck === true &&
@@ -134,9 +128,15 @@ export default function SignUp() {
       }).catch((error) => {
         console.log(error)
       })
+      navigateToLogin();
       
     }
   };
+  let navigate = useNavigate();
+  
+  const navigateToLogin = () =>{
+    navigate("/");
+  } 
 
 
   return (

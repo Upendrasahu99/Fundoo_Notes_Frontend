@@ -7,6 +7,7 @@
 }
 .login-Container{
     height: 70%;
+    min-height: 500px;
     width: 30%;
     border:  1px solid black;
     border-radius: 5px;

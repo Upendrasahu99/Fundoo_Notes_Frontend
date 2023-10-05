@@ -65,7 +65,7 @@ export default function Login() {
       login(data)
         .then((response) => {
           console.log(response);
-          localStorage.setItem("Token", response.data.result);
+          localStorage.setItem("Token", response.data.result); // data is axios data which is comming and result is response 
           navigateToDashboard(); // "result" is name which we given in controller response
         })
         .catch((error) => {

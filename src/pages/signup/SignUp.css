@@ -40,8 +40,10 @@ align-items: center;
 
 
 .signup-Container{
-    height: 90%;
-    width: 60%;
+    height: 80%;
+    min-height: 600px;
+    width: 50%;
+    min-width: 770px;
     margin:  auto;
     border: 1px solid gray;
     border-radius: 5px;
