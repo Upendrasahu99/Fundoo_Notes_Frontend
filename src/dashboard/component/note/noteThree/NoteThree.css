@@ -1,0 +1,14 @@
+.Note3-Container{
+    padding-top: 15px;
+    display: flex;
+}
+.PaperThree-Container{
+    height: auto;
+    width: 600px;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+.Middle-Div{
+    min-height: 10px;
+    height: auto;
+}

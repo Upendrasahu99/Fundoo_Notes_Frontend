@@ -132,7 +132,7 @@ export default function SideBar() {
       <Appbar handleDrawerOpen = {handleDrawer}/>
       </AppBar>
       {/* Drawe component*/}
-      <Drawer variant="permanent" open={open} sx={{backgroundColor:"blue"}} >
+      <Drawer variant="permanent" open={open} sx={{}} >
         {/* DrawerHeader compnent*/}
         {/* <DrawerHeader sx={{width:"0px"}}>
           Icon button to toggle the sidebar
@@ -145,30 +145,32 @@ export default function SideBar() {
 
         {/* List of IconButton compnents for sidebar menu items */}
         <List style={{ display: 'flex', flexDirection: 'column', }}>
-        <IconButton aria-label='Notes'> {/* Notes */}
-           <LightbulbOutlinedIcon/>  
-           {/* Notes */}
-           </IconButton>
-
-           <IconButton aria-label='Notes'> {/* Reminders */}
-           <NotificationsNoneOutlinedIcon/>  
-           {/* Reminders */}
-           </IconButton>
-
-           <IconButton aria-label='Edit-Labels'> {/* Edit Labels */}
-           <ModeEditOutlinedIcon/>  
-           {/* Edit Label*/}
-           </IconButton>
-
-           <IconButton aria-label='Archive'> {/* Archive */}
-           <ArchiveOutlinedIcon/>  
-           {/* Archive*/}
-           </IconButton>
-
-           <IconButton aria-label='Bin'> {/* Bin*/}
-           <DeleteOutlinedIcon/>  
-           {/* Archive*/}
-           </IconButton>
+        {['Notes ', 'Reminders', 'Edit Label', 'Archive', 'Bin'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {index === 0 ? <LightbulbOutlinedIcon/> : ""}
+                  {index === 1 ? <NotificationsNoneOutlinedIcon/> : ""}
+                  {index === 2 ? <ModeEditOutlinedIcon/> : ""}
+                  {index === 3 ? <ArchiveOutlinedIcon/> : ""}
+                  {index ===4 ? <DeleteOutlinedIcon/>: ""}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
 
         </List>
       </Drawer>

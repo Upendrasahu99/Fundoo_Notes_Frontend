@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
-import { Button, IconButton, Paper, colors } from "@mui/material";
-import "./NoteTwo.css"
+import React from "react";
+import "./NoteThree.css"
+import { Paper,IconButton } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined'; //pin
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined'; //Remind me
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined'; //Collab
@@ -8,49 +8,24 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined'; //Bac
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';//AddImage
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';//Archive
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined'; //More
-// import {creatNote} from '../../../../service/NoteService'
-import {creatNote} from '../../../../service/NoteService'
 
 
-function NoteTwo(props){
-
-    const [data, setData] = useState({
-         Title:"",
-         Note:"",
-         Archive:false,
-         Trash:false
-        });
-
-        const changeHandler = {
-            title: (e) => setData((prev) => ({ ...prev, Title: e.target.value })),
-            note: (e) => setData((prev) => ({ ...prev, Note: e.target.value })),
-          };
-          console.log(data);
-
-        const SubmitData = () =>{
-            if(data.Title !== "" ){
-                creatNote(data)
-               .then((response) => {
-                 console.log(response);
-           // "result" is name which we given in controller response
-        })
-            }
-        }
+function NoteThree(props){
 
     return(
-        <div>
-            <Paper elevation={3} className="PaperTwo-Container" >
+        <div className="Note3-Container">
+            <Paper elevation={3} className="PaperThree-Container" >
                 <div className="Upper-Div">
-                    {/* <div style={{width:"550px"}}> */}
-                    <input style={{width:"550px"}} type="text" placeholder="Title" onChange={changeHandler.title}></input>
-                    {/* </div> */}
+                    <div style={{width:"550px"}}>
+                    {props.data.title}   
+                    </div>
                     <IconButton aria-label="Pin note" >
                     <PushPinOutlinedIcon/>
                     </IconButton>
                 </div>
 
                 <div className="Middle-Div">
-                <input style={{width:"550px"}} type="text" placeholder="Take a note..." onChange={changeHandler.note} ></input>
+                {props.data.note}
                 </div>
 
                 <div className="Lower-Div">
@@ -80,20 +55,10 @@ function NoteTwo(props){
                    <MoreVertOutlinedIcon/>
                    </IconButton>
                    </div>
-
-                   <div style={{width:"200px"}}> {/* Space between icon and close button*/}
-
-                   </div>
-                    <Button onClick=
-                    {() => {SubmitData();
-                        props.HandleToggle()}}
-                     style={{color:"grey"}}>
-                        
-                        Close
-                    </Button>
                 </div>
             </Paper>
         </div>
     );
 }
-export default NoteTwo
+
+export default NoteThree;

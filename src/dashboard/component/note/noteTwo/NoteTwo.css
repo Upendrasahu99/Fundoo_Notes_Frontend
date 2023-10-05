@@ -17,7 +17,8 @@
 }
 .Middle-Div{
     color: gray;
-    height: 33.33%;
+    min-height: 33.33%;
+    height: auto;
     text-align: left;
     display: flex;
     align-items: center;
