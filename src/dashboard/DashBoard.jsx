@@ -9,20 +9,36 @@ import { GetAllNote } from "../service/NoteService";
 
 const DashBoard = () => {
 
-const[showNoteTwo, setShowNoteTwo] = useState(true);
-const[getAll, SetGetAll] =useState([]);
+const[showNoteTwo, setShowNoteTwo] = useState(true);// For Note1 to Note2 or Note1 to Note2
+const[getAll, SetGetAll] = useState([]); // Set Array for get All Note (Get All/Archive notes/Trash notes)
+const[section, setSection] = useState("notes") // Set Option for what notes we want to see (Get All/Archive notes/Trash notes)
+
 
 const AllNote = async() =>{
   let response = await GetAllNote();
-  console.log("message")
-  SetGetAll(response.data.result) //'result' is data comming from Http response and we storing result data in "data"
   console.log(response.data.result)
+  let newArray = [];
+
+  if(section === "notes"){
+    newArray = response.data.result.filter(filterData => filterData.archive === false && filterData.trash === false);   
+  }
+
+  else if(section === "archive"){
+    newArray = response.data.result.filter(filterData => filterData.archive === true && filterData.trash === false);
+  }
+
+  else if(section === "trash"){
+    newArray = response.data.result.filter(filterData => filterData.archive === false && filterData.trash === true);
+  }
+  // SetGetAll(response.data.result) //'result' is data comming from Http response and we storing result data in "data"
+  console.log(newArray);
+  SetGetAll(newArray);
 };
 
-useEffect(
-  () =>{
-    AllNote()
-  }, []
+useEffect(  // If "Array" change it will change the virtual dom (side show) 
+  () =>{ 
+    AllNote() //Show All notes
+  },[getAll] //Dependency "Array"
 );
 
 const HandleToggle = () =>{
@@ -35,13 +51,13 @@ const HandleToggle = () =>{
         
         </div>
         <div className="SideBar-Container">
-            <SideBar/>
+            <SideBar setSection={setSection}/>
         </div>
         <div className="Note_Container">
         {
           showNoteTwo ? <NoteOne HandleToggle={HandleToggle}/> : <NoteTwo HandleToggle={HandleToggle} AllNote={AllNote}/>
         }
-        </div>
+        </div> 
         <div className="Display-Note">
           {
             getAll.map((data) =>(

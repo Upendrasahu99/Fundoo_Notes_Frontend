@@ -104,8 +104,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+
+
+
 //Main Sidebar component
-export default function SideBar() {
+export default function SideBar({setSection}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -118,9 +121,9 @@ export default function SideBar() {
     }
   };
 
-  // const handleDrawerOpen = () => {
-  //   setOpen(true)
-  // }
+  const SelectSection = (option) =>{
+    setSection(option);
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -133,14 +136,6 @@ export default function SideBar() {
       </AppBar>
       {/* Drawe component*/}
       <Drawer variant="permanent" open={open} sx={{}} >
-        {/* DrawerHeader compnent*/}
-        {/* <DrawerHeader sx={{width:"0px"}}>
-          Icon button to toggle the sidebar
-          <IconButton onClick={handleDrawer} >
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader> */}
-
         <Divider />
 
         {/* List of IconButton compnents for sidebar menu items */}
@@ -161,11 +156,11 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 ? <LightbulbOutlinedIcon/> : ""}
+                  {index === 0 ? <LightbulbOutlinedIcon onClick ={() => SelectSection("notes")}/> : ""}
                   {index === 1 ? <NotificationsNoneOutlinedIcon/> : ""}
                   {index === 2 ? <ModeEditOutlinedIcon/> : ""}
-                  {index === 3 ? <ArchiveOutlinedIcon/> : ""}
-                  {index ===4 ? <DeleteOutlinedIcon/>: ""}
+                  {index === 3 ? <ArchiveOutlinedIcon onClick ={() => SelectSection("archive")}/> : ""}
+                  {index ===4 ? <DeleteOutlinedIcon onClick ={() => SelectSection("trash")}/>: ""}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -175,9 +170,7 @@ export default function SideBar() {
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-       
-        
+        <DrawerHeader />       
       </Box>
     </Box>
   );
