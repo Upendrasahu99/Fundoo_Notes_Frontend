@@ -27,7 +27,7 @@ function NoteTwo(props){
           };
           console.log(data);
 
-        const SubmitData = () =>{
+        const submitData = () =>{
             if(data.Title !== "" ){
                 creatNote(data)
                .then((response) => {
@@ -85,7 +85,7 @@ function NoteTwo(props){
 
                    </div>
                     <Button onClick=
-                    {() => {SubmitData();
+                    {() => {submitData();
                         props.HandleToggle()}}
                      style={{color:"grey"}}>
                         

@@ -68,9 +68,6 @@ export default function Login() {
           localStorage.setItem("Token", response.data.result); // data is axios data which is comming and result is response 
           navigateToDashboard(); // "result" is name which we given in controller response
         })
-        .catch((error) => {
-          console.log(error);
-        });
     }
   };
   let navigate = useNavigate();

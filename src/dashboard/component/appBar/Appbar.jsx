@@ -170,26 +170,31 @@ export default function Appbar(props) {
   );
 
   // Function to handle opening the side drawer
-  const handleDrawerOpen = () => {
-    props.handleDrawerOpen();
-  }
+  // const handleDrawerOpen = () => {
+  //   props.handleDrawerOpen();
+  // }
+
+  //navigate object for Using useNavigateHook
+  let navigate = useNavigate();
+
 //Logout funtionality
 function handleLogout() {
   // Remove the token from local storage
   localStorage.removeItem('Token');
   navigate("/");
 }
-let navigate = useNavigate();
+
+
   return (
     <div>
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" sx={{ backgroundColor: 'white', color:"gray" /* 1 step give color*/ }} >
+      <AppBar position="fixed" sx={{ backgroundColor: 'white', color:"gray" /* 1 step give color*/ }} >
         <Toolbar>
           {/* Menu icon button */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            // onClick={handleDrawerOpen}
             edge="start"
             sx={{
               marginRight: 5,
@@ -244,15 +249,7 @@ let navigate = useNavigate();
             <SettingsIcon />
             </IconButton>
 
-            {/* <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              
-            </IconButton> */}
 
-            {/* User account button*/}
             <IconButton
               size="large"
               edge="end"

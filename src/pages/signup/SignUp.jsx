@@ -53,7 +53,7 @@ export default function SignUp() {
   };
   console.log(user)
 
-  const submitHandler = () => { //Check Regex and 
+  const submitHandler = ()  => { //Check Regex and 
     const fnameCheck = regex.firstName.test(user.firstName);
     const lnameCheck = regex.lastName.test(user.lastName);
     const userNameCheck = regex.email.test(user.email);
@@ -129,8 +129,7 @@ export default function SignUp() {
         console.log(error)
       })
       navigateToLogin();
-      
-    }
+      }
   };
   let navigate = useNavigate();
   

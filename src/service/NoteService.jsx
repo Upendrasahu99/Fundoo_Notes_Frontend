@@ -18,7 +18,7 @@ export const creatNote = async(addNoteObj) => {
  
 
 export const GetAllNote = () =>{
-    let response = axios.get('https://localhost:44304/api/Note/Get',{
+    let response = axios.get('https://localhost:44304/api/Note/Get',{ //In get and delte we don't need to pass argument
         headers:{
             'Content-Type': "application/json",
             'Authorization': `Bearer ${localStorage.getItem("Token")}`   
@@ -39,6 +39,16 @@ export const IsArchive = async(obj) => {                                     // 
 
 export const IsTrash = async(obj) => {
     let response = await axios.put(`https://localhost:44304/api/Note/Trash/${obj.noteId}`, obj,{
+        headers:{
+         'Content-Type': "application/json",
+         'Authorization': `Bearer ${localStorage.getItem("Token")}` 
+        }
+    });
+    return response;
+}
+
+export const ForeverDelete = async(obj) => {
+    let response = await axios.delete(`https://localhost:44304/api/Note/Delete/${obj.noteId}`,{ //In delete don't need to pass second argument
         headers:{
          'Content-Type': "application/json",
          'Authorization': `Bearer ${localStorage.getItem("Token")}` 

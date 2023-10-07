@@ -112,7 +112,7 @@ export default function SideBar({setSection}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  //Function to toggle the sidebar open/Close state
+  //Function to toggle the sidebar o pen/Close state
   const handleDrawer = () => {
     if(open === true){
     setOpen(false);
@@ -121,19 +121,24 @@ export default function SideBar({setSection}) {
     }
   };
 
-  const SelectSection = (option) =>{
+  const selectSection = (option) =>{
     setSection(option);
   }
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* <CssBaseline /> */}
+
+
 
       {/* AppBar compnent */}
-      <AppBar open={open}>
+      {/* <AppBar open={open}> */}
         {/* Appbar component from another file */}
-      <Appbar handleDrawerOpen = {handleDrawer}/>
-      </AppBar>
+      {/* <Appbar handleDrawerOpen = {handleDrawer}/>
+      </AppBar> */}
+
+
+
+
       {/* Drawe component*/}
       <Drawer variant="permanent" open={open} sx={{}} >
         <Divider />
@@ -147,6 +152,9 @@ export default function SideBar({setSection}) {
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
+                  '&:hover':{
+                    backgroundColor:'rgba(255,165,0,0.15)' //color for navbar
+                  }
                 }}
               >
                 <ListItemIcon
@@ -156,11 +164,11 @@ export default function SideBar({setSection}) {
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 ? <LightbulbOutlinedIcon onClick ={() => SelectSection("notes")}/> : ""}
+                  {index === 0 ? <LightbulbOutlinedIcon onClick ={() => selectSection("notes")}/> : ""}
                   {index === 1 ? <NotificationsNoneOutlinedIcon/> : ""}
                   {index === 2 ? <ModeEditOutlinedIcon/> : ""}
-                  {index === 3 ? <ArchiveOutlinedIcon onClick ={() => SelectSection("archive")}/> : ""}
-                  {index ===4 ? <DeleteOutlinedIcon onClick ={() => SelectSection("trash")}/>: ""}
+                  {index === 3 ? <ArchiveOutlinedIcon onClick ={() => selectSection("archive")}/> : ""}
+                  {index ===4 ? <DeleteOutlinedIcon onClick ={() => selectSection("trash")}/>: ""}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
