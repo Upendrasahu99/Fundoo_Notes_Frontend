@@ -169,32 +169,27 @@ export default function Appbar(props) {
     </Menu>
   );
 
-  // Function to handle opening the side drawer
-  // const handleDrawerOpen = () => {
-  //   props.handleDrawerOpen();
-  // }
-
-  //navigate object for Using useNavigateHook
-  let navigate = useNavigate();
-
+  // Function to handle opening the side drawer 
+  const handleDrawerOpen = () => {
+    props.handleDrawerOpen();  // passing data using props in navbar(Parent component)
+  }
 //Logout funtionality
 function handleLogout() {
   // Remove the token from local storage
   localStorage.removeItem('Token');
   navigate("/");
 }
-
-
+let navigate = useNavigate();
   return (
     <div>
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="fixed" sx={{ backgroundColor: 'white', color:"gray" /* 1 step give color*/ }} >
+      <AppBar position="static" sx={{ backgroundColor: 'white', color:"gray" /* 1 step give color*/ }} >
         <Toolbar>
           {/* Menu icon button */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            // onClick={handleDrawerOpen}
+            onClick={handleDrawerOpen}
             edge="start"
             sx={{
               marginRight: 5,
@@ -248,7 +243,6 @@ function handleLogout() {
             <IconButton aria-label="Settings"> {/* 3 step create setting Button*/}
             <SettingsIcon />
             </IconButton>
-
 
             <IconButton
               size="large"

@@ -109,10 +109,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 //Main Sidebar component
 export default function SideBar({setSection}) {
-  const theme = useTheme();
+  // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  //Function to toggle the sidebar o pen/Close state
+  //Function to toggle the sidebar open/Close state
   const handleDrawer = () => {
     if(open === true){
     setOpen(false);
@@ -127,18 +127,13 @@ export default function SideBar({setSection}) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-
-
+      {/* <CssBaseline /> */}
 
       {/* AppBar compnent */}
-      {/* <AppBar open={open}> */}
+      <AppBar open={open} sx={{backgroundColor:"white"}}> {/*App bar color blue to white*/}
         {/* Appbar component from another file */}
-      {/* <Appbar handleDrawerOpen = {handleDrawer}/>
-      </AppBar> */}
-
-
-
-
+      <Appbar handleDrawerOpen = {handleDrawer}/>
+      </AppBar>
       {/* Drawe component*/}
       <Drawer variant="permanent" open={open} sx={{}} >
         <Divider />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Appbar from "./component/appBar/Appbar";
+// import Appbar from "./component/appBar/Appbar";
 import SideBar from "./component/navBar/NavBar";
 import "./DashBoard.css";
 import NoteOne from "./component/note/noteOne/NoteOne";
@@ -9,11 +9,9 @@ import { GetAllNote } from "../service/NoteService";
 
 const DashBoard = () => {
 
-const[isDrawerOpen, setIsDrawerOpen] = useState(false); // For Opening and closing drawer
 const[showNoteTwo, setShowNoteTwo] = useState(true);// For Note1 to Note2 or Note1 to Note2
 const[getAll, setGetAll] = useState([]); // Set Array for get All Note (Get All/Archive notes/Trash notes)
 const[section, setSection] = useState("notes") // Set Option for what notes we want to see (Get All/Archive notes/Trash notes)
-
 
 
 const allNote = async() =>{
@@ -49,9 +47,9 @@ const handleToggle = () =>{
 
   return (
     <div className="Dashbord-Container">
-        <div className="AppBar-Container">
-        <Appbar/>
-        </div>
+        {/* <div className="AppBar-Container">
+        
+        </div> */}
         <div className="SideBar-Container">
             <SideBar setSection={setSection}/>
         </div>

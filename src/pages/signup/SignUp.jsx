@@ -53,7 +53,7 @@ export default function SignUp() {
   };
   console.log(user)
 
-  const submitHandler = ()  => { //Check Regex and 
+  const submitHandler = async()  => { //Check Regex and 
     const fnameCheck = regex.firstName.test(user.firstName);
     const lnameCheck = regex.lastName.test(user.lastName);
     const userNameCheck = regex.email.test(user.email);
@@ -123,12 +123,21 @@ export default function SignUp() {
       // user.password === user.confirmPassword
     ) {
 
-      signup(user).then ((response) =>{
-        console.log(response)
-      }).catch((error) => {
-        console.log(error)
-      })
-      navigateToLogin();
+        try{
+          const response = await signup(user);
+          console.log(response);
+          alert("user registered successfully");
+          navigateToLogin();
+        }
+        catch(error){
+          console.log(error)
+        }
+
+      // signup(user).then ((response) =>{
+      //   console.log(response)
+      // }).catch((error) => {
+      //   console.log(error)
+      // })
       }
   };
   let navigate = useNavigate();

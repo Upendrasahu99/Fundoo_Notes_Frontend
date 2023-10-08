@@ -16,25 +16,23 @@ import { ForeverDelete } from "../../../../service/NoteService";
 
 function NoteThree(props){
 
-    const archiveNote = (Id) => {
+    const archiveNote = async(Id) => {
         let obj = {noteId : Id}
-        IsArchive(obj).then((response) => {
-            console.log(response);
-        })
+
+        const response = await IsArchive(obj);
+        console.log(response);
     }
 
-    const trashNote = (Id) => {
+    const trashNote = async (Id) => {
         let obj = {noteId : Id}
-        IsTrash(obj).then((response) => {
-            console.log(response);
-        })
+        const response = await IsTrash(obj);
+        console.log(response);
     }
 
-    const deleteNote = (Id) =>{
+    const deleteNote = async (Id) =>{
         let obj = {noteId : Id}
-        ForeverDelete(obj).then((response) =>{
-            console.log(response);
-        })
+        const response = await ForeverDelete(obj);
+        console.log(response);
     }
     return(
         <div className="Note3-Container">

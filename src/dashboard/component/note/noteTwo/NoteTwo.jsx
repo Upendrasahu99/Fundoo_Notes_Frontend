@@ -27,13 +27,16 @@ function NoteTwo(props){
           };
           console.log(data);
 
-        const submitData = () =>{
+        const submitData = async () =>{
             if(data.Title !== "" ){
-                creatNote(data)
-               .then((response) => {
+                try{
+                 const response = await creatNote(data);
                  console.log(response);
-           // "result" is name which we given in controller response
-        })
+
+                }
+                catch(error){
+                    console.log(error)
+                }
             }
         }
 

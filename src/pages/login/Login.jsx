@@ -30,7 +30,7 @@ export default function Login() {
     password: (e) => setData((prev) => ({ ...prev, password: e.target.value })),
   };
 
-  const submitHandler = () => {
+  const submitHandler = async() => {
     const userNameCheck = regex.email.test(data.email);
     const passwordCheck = regex.password.test(data.password);
     if (userNameCheck === false && passwordCheck === false) {
@@ -61,13 +61,16 @@ export default function Login() {
       }));
     }
     if (userNameCheck === true && passwordCheck === true) {
-      // alert("user registered successfully");
-      login(data)
-        .then((response) => {
-          console.log(response);
-          localStorage.setItem("Token", response.data.result); // data is axios data which is comming and result is response 
-          navigateToDashboard(); // "result" is name which we given in controller response
-        })
+      
+      try{
+        const response = await login(data);
+      console.log(response);
+      localStorage.setItem("Token", response.data.result); // data is axios data which is comming and result is response.
+      navigateToDashboard(); // "result" is name which we given in controller response 
+      }
+      catch(error){
+        console.log(error);
+      }
     }
   };
   let navigate = useNavigate();
