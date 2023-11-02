@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const signup = async(obj) => {
-        let response = await axios.post('https://localhost:44304/api/User/Register', obj);
+        let response = await axios.post('https://fundoobackend.azurewebsites.net/api/User/Register', obj);
         return response;
     }
 
