@@ -1,3 +1,4 @@
+import React from 'react';
 import SignUp from '../pages/signup/SignUp'
 import Login from '../pages/login/Login';
 import {Routes, Route} from "react-router-dom"
@@ -9,7 +10,7 @@ import { ProtectedRoute } from './ProtectedRoute';
 function Router(){
   return (
     <div className='App'>
-       <BrowserRouter>
+    <BrowserRouter>
        <Routes>
         <Route path = "/" element = {<AuthRoute><Login/></AuthRoute>}/>
         <Route path='/signup' element = {<AuthRoute><SignUp/></AuthRoute>}/>
