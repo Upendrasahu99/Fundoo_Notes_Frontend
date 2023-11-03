@@ -17,8 +17,7 @@
     "react-router-dom": "^6.16.0",
     "react-scripts": "^3.0.1",
     "styled-components": "^5.3.11",
-    "web-vitals": "^2.1.4",
-    "type": "module"
+    "web-vitals": "^2.1.4"
   },
   "jest": {
     "moduleNameMapper": {
@@ -27,8 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts build --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
